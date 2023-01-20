@@ -1,0 +1,52 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "title": "Free time",
+    "description": "Free time API schema",
+    "type": "object",
+    "properties": {
+        "time_interval": {
+            "description": "The time interval to find free time",
+            "type": "object",
+            "properties": {
+                "start": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "finish": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "start",
+                "finish"
+            ]
+        },
+        "events": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "description": "an event with starting and finishing time",
+                "properties": {
+                    "start": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "finish": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "start",
+                    "finish"
+                ]
+            }
+        }
+    },
+    "required": [
+        "time_interval",
+        "events"
+    ]
+}
