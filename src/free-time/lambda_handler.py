@@ -10,28 +10,6 @@ from shapely import MultiLineString, LineString
 from datetime import datetime
 
 
-event = {
-    'time_interval': {
-        'start': '2023-01-01T00:00:00Z',
-        'finish': '2023-01-02T00:00:00Z',
-    },
-    'events': [
-        {
-            'start': '2023-01-01T01:00:00Z',
-            'finish': '2023-01-01T03:00:00Z',
-        },
-        {
-            'start': '2023-01-01T02:00:00Z',
-            'finish': '2023-01-01T04:00:00Z',
-        },
-        {
-            'start': '2023-01-01T08:00:00Z',
-            'finish': '2023-01-01T10:00:00Z',
-        },
-    ]
-}
-
-
 def lambda_handler(event, _):
     return FreeTimeCalculator().process(event)
 
@@ -99,6 +77,3 @@ class FreeTimeCalculator:
                 'finish': rfc3339.rfc3339(datetime.utcfromtimestamp(free_time.bounds[2]))
             })
         return {'response': response}
-
-
-print(lambda_handler(event, None))
