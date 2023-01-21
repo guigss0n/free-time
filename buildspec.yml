@@ -16,5 +16,6 @@ phases:
   post_build:
     commands:
       - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name free-time --zip-file fileb://deployment_package.zip
+      - aws s3 cp deployment_package.zip s3://source-code-intermediate-bucket/deployment_package.zip
+      - aws lambda update-function-code --function-name free-time --s3-bucket source-code-intermediate-bucket --s3-key deployment_package.zip
       - echo "DONE!!"
