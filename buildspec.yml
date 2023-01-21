@@ -13,6 +13,7 @@ phases:
       - zip -r9 ../deployment_package.zip .
       - cd ..
       - zip -g deployment_package.zip src/free-time/lambda_handler.py
+      - ls -lh deployment_package.zip
   post_build:
     commands:
       - echo "Updating lambda Function..."

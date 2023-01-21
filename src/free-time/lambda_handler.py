@@ -3,7 +3,6 @@
 import json
 import iso8601
 import rfc3339
-import requests
 
 from jsonschema import Draft7Validator, FormatChecker
 from shapely import MultiLineString, LineString
